@@ -5,6 +5,7 @@ import pytest
 from mdp_framework.core.discrete import DiscreteMDP
 from mdp_framework.core.continuous import ContinuousMDP
 
+
 def test_discrete_mdp_step_and_reset():
     n_states = 4
     n_actions = 3
@@ -20,14 +21,18 @@ def test_discrete_mdp_step_and_reset():
         assert 0 <= s1 < n_states
         assert r == R[mdp.state, a] or r in R  # reward korrekt
 
+
 def test_continuous_mdp_step_and_reset():
     state_dim = 3
     action_dim = 2
     gamma = 0.99
+
     def dyn(s, a):
         return np.ones(state_dim)
+
     def rew(s, a):
         return 42.0
+
     mdp = ContinuousMDP(state_dim, action_dim, dyn, rew, gamma)
     s0 = mdp.reset()
     assert s0.shape == (state_dim,)
@@ -36,4 +41,3 @@ def test_continuous_mdp_step_and_reset():
         s1, r = mdp.step(a)
         assert s1.shape == (state_dim,)
         assert r == 42.0
-
