@@ -1,0 +1,9 @@
+[project]
+name = "MDPFramework"
+version = "0.1.0"
+description = "Framework zum Erzeugen und Speichern von random MDPs (Diskret und Stetig)"
+authors = ["Tim Ulsamer <tim.ulsamer@web.de>"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
